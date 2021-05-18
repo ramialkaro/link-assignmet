@@ -6,65 +6,24 @@ import (
 	"github.com/fatih/color"
 )
 
-// List of link station which is consist of the following X, Y, R
-func GetLinkStation() [][3]int {
-	stations := [][3]int{
-		{0, 0, 3},
-		{20, 20, 5},
-		{10, 0, 12},
-		{17, 17, 2},
-		{30, 34, 6},
-		{41, 43, 4},
-		{1, 3, 4},
+// Generate a list of link station which is consist of the following X, Y, and R values
+func GetLinkStation() []StationStruct {
+	linkStations := []StationStruct{
+		{x: 0, y: 0, r: 3},
+		{x: 20, y: 20, r: 5},
+		{x: 10, y: 0, r: 12},
+		{x: 17, y: 17, r: 2},
+		{x: 30, y: 34, r: 6},
+		{x: 41, y: 43, r: 4},
+		{x: 1, y: 3, r: 4},
 	}
-	return stations
+	return linkStations
 }
 
-// validate the distance between device location from the list of the link station
-// args of the function are list of links station([x, y, r]) and device point(x, y)
-// s[0] is x value for station,
-// s[1] is y value for station,
-// s[2] is reach value for station
-
-func GetResult(stations [][3]int, xDevice int, yDevice int) {
-
-	var power int
-	var x int
-	var y int
-
-	color.Cyan("\nList of link stations:")
-	for _, s := range stations {
-
-		distance := CalculateDistance(xDevice, yDevice, s[0], s[1])
-
-		fmt.Printf("x: %v,\ty: %v,\tr%v\t\tdistance: %v\n", s[0], s[1], s[2], distance)
-		//fmt.Printf("loop x: %d, y: %d, r:%d\tdistance: %d\n\n", s[0], s[1], s[2], distance)
-
-		if distance > s[2] {
-			if power == 0 {
-				power = 0
-			}
-		} else {
-			nextPower := CalculatePower(s[2], distance)
-			if power <= nextPower {
-				power = nextPower
-				x = s[0]
-				y = s[1]
-			}
-			//fmt.Printf("Power value is %d\n", power)
-		}
-
-	}
-
-	if power != 0 {
-		color.Green("\nBest link station for point x:%d, y:%d is x:%d, y:%d with power %d\n",
-			xDevice,
-			yDevice,
-			x,
-			y,
-			power)
-
-	} else if power == 0 {
-		fmt.Printf("\nNo link station with reach for point x: %v, y: %v \n", xDevice, yDevice)
+// Print all the link station information.
+func PrintLinkStationInfo() {
+	color.Cyan("List of link station:")
+	for _, station := range GetLinkStation() {
+		fmt.Printf("x: %v,\t\ty: %v,\t\tr: %v\n", station.x, station.y, station.r)
 	}
 }
