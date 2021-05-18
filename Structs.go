@@ -12,9 +12,9 @@ type TargetStruct struct {
 }
 
 type StationStruct struct {
-	x int
-	y int
-	r int
+	x     int
+	y     int
+	reach int
 }
 
 type DistanceStruct struct {

@@ -16,16 +16,14 @@ func main() {
 
 	fmt.Println("\n\nhint, values should not be in string format, only numbers are accepted")
 
-	// read X value of the device from console.
-	fmt.Print("Enter X: ")
+	fmt.Print("Enter X value for device: ")
 	_, err := fmt.Scanf("%d", &device.x)
 
 	if err != nil {
 		log.Fatal(err)
 	} else {
 
-		// read Y value of the device from console
-		fmt.Print("Enter Y: ")
+		fmt.Print("Enter Y value for device: ")
 		_, err = fmt.Scanf("%d", &device.y)
 
 		if err != nil {
@@ -36,12 +34,12 @@ func main() {
 
 				distance := CalculateDistance(device, station)
 
-				if distance > station.r {
+				if distance > station.reach {
 					if target.power == 0 {
 						target.power = 0
 					}
 				} else {
-					nextPower := CalculatePower(station.r, distance)
+					nextPower := CalculatePower(station.reach, distance)
 					if target.power <= nextPower {
 						target.power = nextPower
 						target.x = station.x
