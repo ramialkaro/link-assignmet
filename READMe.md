@@ -1,8 +1,8 @@
 
-Step one, Install the color dependency by type: <br/>
+Step one, Install the dependency(optionally): <br/>
 
 ```go install``` <br/> <br/>
 
-Step Two, Run the project by type: <br/>
+Step Two, Run the project: <br/>
 
 ```go run .```<br/>
