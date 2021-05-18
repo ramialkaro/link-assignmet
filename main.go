@@ -57,7 +57,7 @@ func main() {
 					target.power)
 
 			} else if target.power == 0 {
-				fmt.Printf("\nNo link station with reach for point x: %v, y: %v \n", device.x, device.y)
+				fmt.Printf("\nNo link station within reach for point x: %v, y: %v \n", device.x, device.y)
 			}
 		}
 	}
