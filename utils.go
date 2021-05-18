@@ -6,7 +6,7 @@ import (
 	"github.com/fatih/color"
 )
 
-// Generate a list of link station which is consist of the following X, Y, and R values
+// Generate a list of link station which is consist of the following X, Y, and Reach values
 func GetLinkStations() []StationStruct {
 	linkStations := []StationStruct{
 		{x: 0, y: 0, reach: 3},
@@ -20,7 +20,7 @@ func GetLinkStations() []StationStruct {
 	return linkStations
 }
 
-// Print all the link station information.
+// Print the list of link station information.
 func PrintLinkStationsInfo() {
 	color.Cyan("List of link station:")
 	for _, station := range GetLinkStations() {

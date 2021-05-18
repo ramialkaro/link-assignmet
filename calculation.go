@@ -13,7 +13,7 @@ func CalculateDistance(device DeviceStruct, station StationStruct) int {
 			float64(distance.x*distance.x) + float64(distance.y*distance.y)))
 }
 
-// Calculate the power function by give a reach and distance as arguments.
+// Calculate the power, by give a reach of link station and distance as arguments.
 func CalculatePower(reach int, distance int) int {
 	return (reach - distance) * (reach - distance)
 
