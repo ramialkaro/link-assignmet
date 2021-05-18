@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	PrintLinkStationInfo()
+	PrintLinkStationsInfo()
 
 	var target TargetStruct
 	var device DeviceStruct
@@ -30,7 +30,7 @@ func main() {
 			log.Fatal(err)
 		} else {
 
-			for _, station := range GetLinkStation() {
+			for _, station := range GetLinkStations() {
 
 				distance := CalculateDistance(device, station)
 
@@ -40,11 +40,13 @@ func main() {
 					}
 				} else {
 					nextPower := CalculatePower(station.reach, distance)
+
 					if target.power <= nextPower {
 						target.power = nextPower
 						target.x = station.x
 						target.y = station.y
 					}
+
 				}
 			}
 

@@ -7,7 +7,7 @@ import (
 )
 
 // Generate a list of link station which is consist of the following X, Y, and R values
-func GetLinkStation() []StationStruct {
+func GetLinkStations() []StationStruct {
 	linkStations := []StationStruct{
 		{x: 0, y: 0, reach: 3},
 		{x: 20, y: 20, reach: 5},
@@ -21,9 +21,9 @@ func GetLinkStation() []StationStruct {
 }
 
 // Print all the link station information.
-func PrintLinkStationInfo() {
+func PrintLinkStationsInfo() {
 	color.Cyan("List of link station:")
-	for _, station := range GetLinkStation() {
+	for _, station := range GetLinkStations() {
 		fmt.Printf("X: %v,\t\tY: %v,\t\tReach: %v\n", station.x, station.y, station.reach)
 	}
 }
