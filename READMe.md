@@ -1,5 +1,5 @@
 
-Step one, Install the dependency(optionally): <br/>
+Step one, Install the dependency (optionally): <br/>
 
 ```go install``` <br/> <br/>
 
