@@ -12,6 +12,13 @@ class Device {
   }
 }
 
+class Distance {
+  constructor() {
+    this.x = 0;
+    this.y = 0;
+  }
+}
+
 PrintLinkStationsInfo();
 
 let device = new Device();
@@ -33,8 +40,6 @@ rl.question("Enter X value for device: ", (xInput) => {
 
         // Go through all link-stations.
         stations.forEach((station) => {
-
-
           // calculate distance between device and station.
           var distance = CalculateDistance(device, station);
 
@@ -57,15 +62,15 @@ rl.question("Enter X value for device: ", (xInput) => {
           }
         });
 
-				// show a message contain power, most power link-stationin for device point in console.
+        // show a message contain power, most power link-stationin for device point in console.
         if (target.power !== 0) {
           // just for coloring purpose using info
           console.info(
             `\nBest link station for point x:${device.x}, y:${device.y} is x:${target.x}, y:${target.y} with power ${target.power}\n`
           );
 
-					// Not found a link station
-        }else if (target.power === 0) {
+          // Not found a link station
+        } else if (target.power === 0) {
           console.log(
             `\nNo link station within reach for point x:${device.x}, y:${device.y}`
           );
@@ -73,7 +78,7 @@ rl.question("Enter X value for device: ", (xInput) => {
 
         rl.close();
       } else {
-				console.error("\n\nExpceted integer. The Y value for device");
+        console.error("\n\nExpceted integer. The Y value for device");
         rl.close();
       }
     });
@@ -83,9 +88,6 @@ rl.question("Enter X value for device: ", (xInput) => {
   }
 });
 
-
-
-
 /*
 #################################################################
 #																																#
@@ -93,7 +95,6 @@ rl.question("Enter X value for device: ", (xInput) => {
 #																																#
 #################################################################	
 */
-
 
 // Generate a list of link station which is consist of the following X, Y, and Reach values
 function GetLinkStations() {
@@ -114,13 +115,12 @@ function PrintLinkStationsInfo() {
   console.log("List of link station:");
 
   let linkStations = GetLinkStations();
-  linkStations.forEach(station => {
+  linkStations.forEach((station) => {
     console.log(
       `X: ${station.x},\t\tY: ${station.y},\t\tReach: ${station.reach}`
     );
   });
 }
-
 
 /*
 #################################################################
@@ -132,7 +132,7 @@ function PrintLinkStationsInfo() {
 
 // calculate how far a device from link station
 function CalculateDistance(device, station) {
-  var distance = new Device();
+  var distance = new Distance();
 
   distance.x = station.x - device.x;
   distance.y = station.y - device.y;
